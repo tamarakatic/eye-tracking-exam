@@ -13,7 +13,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -46,6 +46,7 @@ public class View extends ViewPart {
 		configurateDisplay(parent);
 
 		Button open = new Button(parent, SWT.PUSH);
+		open.setBackground(new Color(parent.getDisplay(), 211,211,211));
 		open.setText("Izaberi Test");
 
 		open.addSelectionListener(new SelectionAdapter() {
@@ -58,24 +59,27 @@ public class View extends ViewPart {
 					exam = createExamByJSON(selectedFile);
 
 					sc = new ScrolledComposite(parent, SWT.V_SCROLL);
+					sc.setLayoutData(new GridData(SWT.CENTER, SWT.TOP, true, true));
 					Composite content = new Composite(sc, SWT.NONE);
 					content.setLayout(new GridLayout(1,false));
 					
 					Label titleLabel = new Label(content, SWT.BORDER | SWT.WRAP);
 					titleLabel.setText(exam.getTitle() + ",\nDatum: " + exam.getData());
+					titleLabel.setBackground(new Color(content.getDisplay(), 255, 255, 255));
 					titleLabel.setLayoutData(new GridData(SWT.CENTER, SWT.TOP, true, false));
-					titleLabel.getParent().layout();
 
 					for (Question question : exam.getListOfQuestions()) {
 						Group group = new Group(content, SWT.SHADOW_ETCHED_IN);
 						group.setText(question.getQuestionTitle());
 						group.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
+						group.setBackground(new Color(content.getDisplay(), 255, 255, 255));
 						group.setLayout(new RowLayout(SWT.VERTICAL));
 						
 						SelectObservableValue<String> observableRadioButtons = new SelectObservableValue<String>();
 						for (String name : question.getAnswers()) {
 							Button button = new Button(group, SWT.RADIO);
 							button.setText(name);
+							button.setBackground(new Color(group.getDisplay(), 255, 255, 255));
 							observableRadioButtons.addOption("Izabrano: " + name,
 									WidgetProperties.selection().observe(button));
 
@@ -90,8 +94,8 @@ public class View extends ViewPart {
 						}
 						Label label = new Label(content, SWT.BORDER | SWT.WRAP);
 						label.setText("");
+						label.setBackground(new Color(content.getDisplay(), 255, 255, 255));
 						label.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-						label.getParent().layout();
 
 						ISWTObservableValue labelTextObservable = WidgetProperties.text().observe(label);
 
@@ -101,8 +105,8 @@ public class View extends ViewPart {
 
 					Button submit = new Button(content, SWT.PUSH);
 					submit.setText("Potvrdi");
+					submit.setBackground(new Color(content.getDisplay(), 204, 204, 204));
 					submit.setLayoutData(new GridData(SWT.CENTER, SWT.FILL, false, false));
-					submit.getParent().layout();
 					
 					submit.addSelectionListener(new SelectionAdapter() {
 
@@ -136,6 +140,7 @@ public class View extends ViewPart {
 					sc.setExpandHorizontal(true);
 					sc.setExpandVertical(true);
 					sc.setMinSize(content.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+					parent.layout();
 				}
 			}
 
@@ -162,6 +167,7 @@ public class View extends ViewPart {
 		int y = bounds.y + (bounds.height - rect.height) / 2;
 
 		parent.getShell().setLocation(x, y);
+		parent.setBackground(new Color(parent.getDisplay(), 0, 171, 255));
 		parent.setLayout(new GridLayout(1, false));
 		parent.getParent().layout();
 		return parent;

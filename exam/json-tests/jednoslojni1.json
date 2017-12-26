@@ -41,6 +41,46 @@
         "Menja boju plave lakmus hartije u belu"
       ],
       "Correct Answer": "Menja boju crvene lakmus hartije u plavu"
+    },
+    {
+      "Question Title": "Zaokružite slovo ispred tačnog odgovora. Plavi kamen je:",
+      "answers": [
+        "Amorfna supstanca bele boje",
+        "Amorfna supstanca plave boje",
+        "Kristalna supstanca bele boje",
+        "Kristalna supstanca plave boje"
+      ],
+      "Correct Answer": "Amorfna supstanca plave boje"
+    },
+    {
+      "Question Title": "Zaokružite slovo ispred tačnog odgovora. Led ima:",
+      "answers": [
+        "Veću gustinu od vode",
+        "Manju gustinu od vode",
+        "Istu gustinu kao voda",
+        "Duplo veću gustinu od vode"
+      ],
+      "Correct Answer": "Duplo veću gustinu od vode"
+    },
+    {
+      "Question Title": "Zaokružite slovo ispred tačnog odgovora. Azot je gas:",
+      "answers": [
+        "Oštrog i neprijatnog mirisa",
+        "Zelene boje",
+        "Bez mirisa",
+        "Otrovan"
+      ],
+      "Correct Answer": "Zelene boje"
+    },
+    {
+      "Question Title": "Zaokružite slovo ispred tačnog odgovora. Amonijak je gas koji:",
+      "answers": [
+        "Menja boju crvene lakmus hartije u plavu",
+        "Menja boju plave lakmus hartije u crvenu",
+        "Menja boju crvene lakmus hartije u belu",
+        "Menja boju plave lakmus hartije u belu"
+      ],
+      "Correct Answer": "Menja boju crvene lakmus hartije u plavu"
     }
   ]
 }
